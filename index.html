@@ -117,13 +117,8 @@
     overflow:hidden;
     box-shadow:0 30px 60px -20px rgba(31,95,209,0.35);
   }
-  .photo-frame .placeholder-note{
-    position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
-    color:#fff; text-align:center; padding:30px; gap:10px;
-  }
-  .photo-frame .placeholder-note svg{width:56px; height:56px; opacity:.85;}
-  .photo-frame .placeholder-note small{
-    font-family:'Space Mono', monospace; font-size:11.5px; letter-spacing:.05em; opacity:.85; max-width:220px;
+  .photo-frame img{
+    width:100%; height:100%; object-fit:cover; display:block;
   }
   .photo-frame::after{
     content:''; position:absolute; inset:0;
@@ -310,10 +305,7 @@
         </div>
 
         <div class="photo-frame">
-          <div class="placeholder-note">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
-            <small>THAY BẰNG ẢNH CHÂN DUNG CỦA BẠN<br>(khuyến nghị 800×1000px)</small>
-          </div>
+          <img src="portrait.jpg" alt="Chân dung Lã Diệu Linh" loading="eager">
           <div class="photo-tag">📍 Hà Nội, Việt Nam</div>
         </div>
       </div>
