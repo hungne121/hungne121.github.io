@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
@@ -196,13 +196,17 @@
   }
   .project-card:hover{transform:translateY(-6px); box-shadow:0 24px 46px -20px rgba(11,37,69,0.25);}
   .project-thumb{
-    aspect-ratio:4/3; position:relative; display:flex; align-items:flex-end; padding:16px;
+    aspect-ratio:4/3; position:relative; overflow:hidden;
     background-size:cover; background-position:center;
+  }
+  .project-thumb img{
+    width:100%; height:100%; object-fit:cover; display:block;
   }
   .project-thumb.content-bg{background:linear-gradient(155deg,#123b94,#1f5fd1 60%, #7fa8e8);}
   .project-thumb.plan-bg{background:linear-gradient(155deg,#0b2545,#1f5fd1 55%, #a9c6f0);}
   .project-thumb.photo-bg{background:linear-gradient(155deg,#1f5fd1,#0b2545 70%);}
-  .cat-chip{
+  .project-thumb .cat-chip{
+    position:absolute; left:12px; bottom:12px;
     font-family:'Space Mono', monospace; font-size:10.5px; letter-spacing:.06em;
     background:rgba(255,255,255,0.92); color:var(--blue-deep); padding:6px 12px; border-radius:100px;
     text-transform:uppercase;
@@ -430,57 +434,28 @@
 <script>
   const projectData = [
     {
-      id: 1, cat: 'content', chip: 'CONTENT',
-      title: 'Bộ Content "Vị Của Nhà" — Chuỗi F&B',
-      desc: '30 bài content đa nền tảng cho chiến dịch ra mắt thực đơn mùa mới.',
-      brief: 'Thương hiệu F&B cần một chuỗi nội dung xuyên suốt 4 tuần để giới thiệu thực đơn mùa mới, hướng tới nhóm khách hàng văn phòng 25-34 tuổi.',
-      plan: 'Xây dựng content calendar theo 3 trụ cột: câu chuyện nguyên liệu, hậu trường bếp, và đánh giá khách hàng thật. Đăng đều đặn trên Facebook, Instagram và TikTok.',
-      result: 'Tăng 42% lượt tương tác trung bình mỗi bài so với tháng trước, thêm 1.200 lượt theo dõi mới trong 4 tuần.',
-      thumbClass:'content-bg'
-    },
-    {
-      id: 2, cat: 'plan', chip: 'KẾ HOẠCH',
-      title: 'Media Plan Ra Mắt Sản Phẩm Mới',
-      desc: 'Kế hoạch truyền thông 6 tuần cho dòng sản phẩm chăm sóc da mới.',
-      brief: 'Nhãn hàng mỹ phẩm cần một lộ trình truyền thông rõ ràng cho sản phẩm mới trước và sau ngày ra mắt.',
-      plan: 'Chia 3 giai đoạn: Teaser (tuần 1-2), Ra mắt (tuần 3-4) và Duy trì (tuần 5-6), phối hợp KOL micro-influencer, quảng cáo trả phí và email marketing.',
-      result: 'Đạt 108% mục tiêu doanh số tuần ra mắt, chi phí trên mỗi đơn hàng giảm 18% so với chiến dịch trước.',
-      thumbClass:'plan-bg'
-    },
-    {
-      id: 3, cat: 'photo', chip: 'PHOTOGRAPHY',
-      title: 'Bộ Ảnh Sản Phẩm — Cà Phê Rang Xay',
-      desc: 'Chụp ảnh sản phẩm và lifestyle cho bộ sưu tập cà phê giới hạn.',
-      brief: 'Cần bộ ảnh thể hiện chất "thủ công, ấm áp" của dòng cà phê rang xay giới hạn, dùng cho website và social.',
-      plan: 'Chụp tại studio ánh sáng tự nhiên, phối cảnh mộc với gỗ và vải linen, tập trung vào chi tiết hạt cà phê và hơi nước.',
-      result: 'Bộ ảnh được dùng xuyên suốt chiến dịch, tăng thời gian xem trang sản phẩm thêm 35%.',
+      id: 1, cat: 'photo', chip: 'PHOTOGRAPHY',
+      title: 'Học cùng sinh viên ĐHQGHN',
+      desc: 'Poster dự án marketing học đường với hình ảnh chủ đạo là ấn phẩm giới thiệu.',
+      overview: 'Dự án xây dựng chiến dịch truyền thông cho chương trình học cùng sinh viên ĐHQGHN, sử dụng poster làm điểm nhấn chính và nhân rộng nội dung trên nền tảng mạng xã hội.',
+      role: 'Thiết kế poster chính, triển khai hình ảnh thương hiệu và phối hợp nội dung mạng xã hội để kéo tương tác với sinh viên.',
+      cover: 'image/project/Marketing/Học cùng sinh viên ĐHQGHN/Poster.jpg',
+      gallery: [
+        'image/project/Marketing/Học cùng sinh viên ĐHQGHN/post_fb1.jpg'
+      ],
       thumbClass:'photo-bg'
     },
     {
-      id: 4, cat: 'content', chip: 'CONTENT',
-      title: 'Kịch Bản Video Ngắn TikTok/Reels',
-      desc: 'Viết 15 kịch bản video ngắn theo trend cho thương hiệu thời trang.',
-      brief: 'Thương hiệu thời trang trẻ cần nội dung video bắt trend nhưng vẫn giữ giọng nói riêng.',
-      plan: 'Nghiên cứu trend hàng tuần, viết kịch bản 15-30 giây với hook 2 giây đầu, kết hợp lời thoại tự nhiên và call-to-action nhẹ nhàng.',
-      result: '3 video đạt trên 100.000 lượt xem, tỉ lệ chuyển đổi sang trang sản phẩm tăng gấp đôi.',
-      thumbClass:'content-bg'
-    },
-    {
-      id: 5, cat: 'plan', chip: 'KẾ HOẠCH',
-      title: 'Chiến Lược Nội Dung Quý IV',
-      desc: 'Xây dựng khung chiến lược nội dung cho 3 tháng cuối năm.',
-      brief: 'Doanh nghiệp cần một bộ khung chiến lược tổng thể để đội content vận hành nhất quán trong quý cao điểm.',
-      plan: 'Xác định 4 chủ đề nội dung chính theo mùa lễ hội, phân bổ ngân sách quảng cáo theo tuần cao điểm mua sắm.',
-      result: 'Đội ngũ nội bộ áp dụng khung này để tự sản xuất nội dung, giảm 30% thời gian lên kế hoạch mỗi tuần.',
-      thumbClass:'plan-bg'
-    },
-    {
-      id: 6, cat: 'photo', chip: 'PHOTOGRAPHY',
-      title: 'Ảnh Chân Dung Thương Hiệu Cá Nhân',
-      desc: 'Bộ ảnh chân dung cho các nhà sáng lập startup dùng trong truyền thông.',
-      brief: 'Nhà sáng lập cần ảnh chân dung chuyên nghiệp nhưng vẫn gần gũi, dùng cho báo chí và LinkedIn.',
-      plan: 'Chụp tại không gian làm việc thật, ánh sáng tự nhiên, kết hợp vài góc máy môi trường để kể câu chuyện công việc.',
-      result: 'Bộ ảnh được 2 đầu báo sử dụng lại, tăng độ nhận diện cá nhân trên LinkedIn.',
+      id: 2, cat: 'photo', chip: 'PHOTOGRAPHY',
+      title: 'Mùa Đông Ấm',
+      desc: 'Poster dự án mùa đông ấm áp và các ảnh bổ trợ cho mạng xã hội.',
+      overview: 'Dự án Mùa Đông Ấm tập trung vào chiến dịch truyền thông cho hoạt động thiện nguyện, dùng poster làm bìa chính và bổ sung ảnh khác trong thư viện ảnh.',
+      role: 'Thực hiện ảnh bìa dự án, xây dựng hình ảnh ấm áp và cảm xúc, đồng thời chọn lọc ảnh phụ trợ cho các kênh social media.',
+      cover: 'image/project/Marketing/Mùa Đông Ấm/poster.jpg',
+      gallery: [
+        'image/project/Marketing/Mùa Đông Ấm/post_fb1.jpg',
+        'image/project/Marketing/Mùa Đông Ấm/post_fb2.jpg'
+      ],
       thumbClass:'photo-bg'
     }
   ];
@@ -495,6 +470,7 @@
       card.className = 'project-card';
       card.innerHTML = `
         <div class="project-thumb ${p.thumbClass}">
+          ${p.cover ? `<img src="${p.cover}" alt="${p.title}">` : ''}
           <span class="cat-chip">${p.chip}</span>
         </div>
         <div class="project-body">
@@ -525,24 +501,24 @@
     modalContent.innerHTML = `
       <button class="modal-close" onclick="closeModal()">✕</button>
       <span class="cat-chip">${p.chip}</span>
-      <div class="modal-thumb ${p.thumbClass}"></div>
+      <div class="modal-thumb ${p.thumbClass}">
+        ${p.cover ? `<img src="${p.cover}" alt="${p.title}">` : ''}
+      </div>
       <h2>${p.title}</h2>
       <div class="modal-section">
-        <span class="label">Brief</span>
-        <p>${p.brief}</p>
+        <span class="label">Tổng quan</span>
+        <p>${p.overview}</p>
       </div>
       <div class="modal-section">
-        <span class="label">Kế hoạch triển khai</span>
-        <p>${p.plan}</p>
+        <span class="label">Vai trò</span>
+        <p>${p.role}</p>
       </div>
-      <div class="modal-section">
-        <span class="label">Kết quả</span>
-        <p>${p.result}</p>
-      </div>
-      ${p.cat === 'photo' ? `
+      ${p.gallery ? `
       <div class="modal-section">
         <span class="label">Thư viện ảnh</span>
-        <div class="gallery-grid"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        <div class="gallery-grid">
+          ${p.gallery.map(src => `<div><img src="${src}" alt="${p.title}"></div>`).join('')}
+        </div>
       </div>` : ''}
     `;
     overlay.classList.add('open');
