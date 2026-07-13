@@ -166,18 +166,44 @@
 
   /* ---------- ABOUT ---------- */
   #about{background:var(--bg-tint); border-radius:40px; margin:0 20px; padding:110px 40px;}
-  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px;}
-  .about-text p{color:var(--muted); line-height:1.85; font-size:16px; margin-bottom:18px;}
-  .about-text p b{color:var(--ink);}
-  .skills{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
-  .skill-card{
-    background:#fff; border-radius:16px; padding:22px 20px; border:1px solid var(--line);
-    transition:transform .25s ease, box-shadow .25s ease;
-  }
-  .skill-card:hover{transform:translateY(-4px); box-shadow:0 16px 30px -14px rgba(31,95,209,0.3);}
-  .skill-card .tag{font-family:'Space Mono', monospace; font-size:11px; color:var(--blue); letter-spacing:.05em;}
-  .skill-card h3{font-size:17px; margin:10px 0 6px; font-weight:600; font-family:'Inter', sans-serif;}
-  .skill-card p{font-size:13.5px; color:var(--muted); line-height:1.6;}
+  .about-header h2{margin:14px 0 8px;}
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center;}
+  .about-left{display:flex; flex-direction:column; justify-content:center; gap:20px;}
+  .about-right{display:flex; flex-direction:column; gap:24px;}
+  .about-education{margin:0;}
+  .about-contact{margin:0;}
+  .about-contact p{margin:0; color:var(--muted); line-height:1.8; font-size:15px;}
+  .about-summary{max-width:100%;}
+  .about-summary p{color:var(--muted); line-height:1.9; font-size:16px; margin-bottom:18px;}
+  .about-summary h2{margin-bottom:24px;}
+  .about-summary strong{color:var(--ink);}
+  .about-card{background:#fff; border-radius:24px; padding:26px; border:1px solid rgba(17,33,68,0.08); box-shadow:0 20px 50px -40px rgba(31,95,209,0.18);}
+  .about-card--wide{grid-column:span 1;}
+  .about-card h4{font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--blue); margin-bottom:12px;}
+  .about-card h3{font-size:19px; margin:0 0 12px; line-height:1.3;}
+  .about-card p, .about-card li{font-size:14px; color:var(--muted); line-height:1.8; margin:0;}
+  .about-card ul{margin:0; padding-left:18px;}
+  .about-card li{margin-bottom:10px;}
+  .about-card ul li:last-child{margin-bottom:0;}
+  .about-card .timeline-list .timeline-entry:last-child{margin-bottom:0;}
+  .about-cards{display:grid; gap:22px;}
+  .about-summary .intro-note{max-width:100%; margin-bottom:24px;}
+  .about-education{margin-bottom:20px;}
+  .about-education h4{font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--blue); margin-bottom:12px;}
+  .about-education p{margin:0 0 10px; color:var(--muted);}
+  .about-education ul{margin:0; padding-left:18px;}
+  .about-education li{margin-bottom:10px;}
+  .about-summary .intro-note p{margin-bottom:14px;}
+  .contact-info{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:0;}
+  .contact-link{color:var(--blue); font-weight:500; text-decoration:none; font-size:15px; transition:color .25s ease;}
+  .contact-link:hover{color:var(--blue-deep); text-decoration:underline;}
+  .timeline-list{list-style:none; padding:0; margin:0;}
+  .timeline-entry{position:relative; padding-left:24px; margin-bottom:24px;}
+  .timeline-entry::before{content:''; position:absolute; left:0; top:4px; width:10px; height:10px; border-radius:50%; background:var(--blue);}
+  .timeline-entry time{display:block; font-size:12px; color:var(--blue-deep); margin-bottom:6px; text-transform:uppercase; letter-spacing:.08em;}
+  .timeline-entry h3{font-size:16px; margin:0 0 8px;}
+  .timeline-entry p{margin:0;}
+  .skills{display:none;}
 
   /* ---------- PROJECTS ---------- */
   .filters{display:flex; gap:10px; margin-bottom:40px; flex-wrap:wrap;}
@@ -344,33 +370,67 @@
   <section id="about">
     <div class="wrap">
       <div class="about-grid">
-        <div class="about-text">
-          <p class="eyebrow">Về mình</p>
-          <h2 style="margin:14px 0 22px; font-size:clamp(26px,3vw,36px);">Marketing là kể chuyện có chiến lược.</h2>
-          <p>Mình bắt đầu từ vị trí Content Creator, sau đó phát triển sang lập kế hoạch truyền thông và tự học chụp ảnh sản phẩm để chủ động hoàn thiện chất liệu hình ảnh cho từng chiến dịch.</p>
-          <p><b>Triết lý làm việc:</b> mọi nội dung đều cần một lý do để tồn tại — insight khách hàng, mục tiêu kinh doanh, và một hình ảnh đủ đẹp để dừng ngón tay lướt.</p>
-          <p>Hiện mình nhận các dự án freelance và hợp tác dài hạn về xây dựng nội dung, lên kế hoạch chiến dịch và chụp ảnh thương hiệu.</p>
+        <div class="about-left">
+          <div class="about-header">
+            <p class="eyebrow">about me</p>
+            <h2 style="margin:14px 0 8px; font-size:clamp(26px,3vw,36px);">Về bản thân</h2>
+          </div>
+          <div class="about-contact">
+            <p>📞 0946.736.286</p>
+            <p>✉️ linhld.mpac.umdayp@gmail.com</p>
+          </div>
+          <div class="about-education">
+            <h4>Học vấn</h4>
+            <p>2022 — 2026</p>
+            <p><strong>Trường Đại học Y Dược - ĐHQGHN</strong> | <strong>Chuyên ngành Kinh tế Dược</strong></p>
+            <ul>
+              <li>GPA: 3.1/4</li>
+              <li>Sinh viên tiêu biểu năm học 2024-2025, 2025-2026</li>
+              <li>Sinh viên 5 tốt năm học 2023-2024, 2024-2025</li>
+              <li>Học bổng khuyến khích học tập dành cho sinh viên có thành tích học tập xuất sắc (2022-2023)</li>
+              <li>Học bổng Ươm mầm Tài năng SHB (2024–2025)</li>
+              <li>Top Bán kết Cuộc thi Euréka lần thứ XXVII với đề tài “Nghiên cứu hợp chất Hydroxychavicol trong điều trị Gout”</li>
+            </ul>
+          </div>
         </div>
-        <div class="skills">
-          <div class="skill-card">
-            <span class="tag">01 · CONTENT</span>
-            <h3>Sáng tạo nội dung</h3>
-            <p>Viết caption, kịch bản video ngắn, blog SEO và xây dựng giọng nói thương hiệu nhất quán.</p>
+
+        <div class="about-right">
+          <div class="about-card">
+            <h4>Hoạt động</h4>
+            <ul class="timeline-list">
+              <li class="timeline-entry">
+                <time>2024 — 2026</time>
+                <h3>Ban chấp hành Đoàn TNCS Hồ Chí Minh Trường Đại học Y Dược, ĐHQGHN</h3>
+                <p>Ủy viên Ban Thường vụ Đoàn Trường</p>
+              </li>
+              <li class="timeline-entry">
+                <time>2023 — 2026</time>
+                <h3>Câu lạc bộ Pháp ngữ</h3>
+                <p>Phó chủ nhiệm & Trưởng ban Truyền thông</p>
+              </li>
+              <li class="timeline-entry">
+                <time>2024- 2025</time>
+                <h3>Câu lạc bộ Học tập Tích cực</h3>
+                <p>Chủ nhiệm</p>
+              </li>
+            </ul>
           </div>
-          <div class="skill-card">
-            <span class="tag">02 · PLANNING</span>
-            <h3>Lên kế hoạch</h3>
-            <p>Xây dựng content calendar, media plan và chiến lược ra mắt sản phẩm theo giai đoạn.</p>
-          </div>
-          <div class="skill-card">
-            <span class="tag">03 · PHOTOGRAPHY</span>
-            <h3>Chụp ảnh sản phẩm</h3>
-            <p>Chụp và hậu kỳ ảnh sản phẩm, lifestyle cho social media và website thương hiệu.</p>
-          </div>
-          <div class="skill-card">
-            <span class="tag">04 · ANALYTICS</span>
-            <h3>Đo lường hiệu quả</h3>
-            <p>Theo dõi số liệu, tối ưu chiến dịch dựa trên insight thực tế từ dữ liệu.</p>
+
+          <div class="about-card">
+            <h4>Kinh nghiệm</h4>
+            <ul class="timeline-list">
+              <li class="timeline-entry">
+                <time>Tháng 5/2026 - 7/2026</time>
+                <h3>Công ty Cổ phần liên kết Dược Thanh Tùng</h3>
+                <p><strong>Chức vụ:</strong> Nhân viên Kinh doanh</p>
+                <ul>
+                  <li>Phụ trách chăm sóc và phát triển mối quan hệ với các nhà thuốc trên địa bàn được phân công.</li>
+                  <li>Tư vấn, hỗ trợ khách hàng.</li>
+                  <li>Khảo sát thị trường, báo cáo tình hình kinh doanh.</li>
+                  <li>Phối hợp xử lý đơn hàng, công nợ và các vấn đề phát sinh.</li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -381,13 +441,15 @@
   <section id="projects">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Dự án đã thực hiện</p>
-        <h2>Một vài chiến dịch mình tự hào.</h2>
+        <p class="eyebrow">projects</p>
+        <h2>Các dự án đã tham gia thực hiện.</h2>
       </div>
 
       <div class="filters">
         <button class="filter-btn active" data-filter="all">Tất cả</button>
         <button class="filter-btn" data-filter="marketing">Marketing</button>
+        <button class="filter-btn" data-filter="photography">Photography</button>
+        <button class="filter-btn" data-filter="design">Design</button>
       </div>
 
       <div class="projects-grid" id="projectsGrid">
@@ -407,7 +469,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <p class="eyebrow" style="color:#7fa8e8;">Bắt đầu hợp tác</p>
+        <p class="eyebrow" style="color:#7fa8e8;">contact</p>
         <h2>Có ý tưởng chiến dịch?<br>Nhắn cho mình nhé.</h2>
         <p class="lead">Mình luôn sẵn sàng nghe brief mới — dù là một bài content đơn lẻ hay một chiến dịch dài hạn.</p>
       </div>
@@ -438,7 +500,7 @@
       overview: 'Dự án xây dựng chiến dịch truyền thông cho chương trình học cùng sinh viên ĐHQGHN, sử dụng poster làm điểm nhấn chính và nhân rộng nội dung trên nền tảng mạng xã hội.',
       role: 'Thiết kế poster chính, triển khai hình ảnh thương hiệu và phối hợp nội dung mạng xã hội để kéo tương tác với sinh viên.',
       cover: 'image/project/Marketing/Học cùng sinh viên ĐHQGHN/Poster.jpg',
-      thumbClass:'photo-bg'
+      thumbClass:'marketing-bg'
     },
     {
       id: 2, cat: 'marketing', chip: 'MARKETING',
@@ -451,10 +513,10 @@
         'image/project/Marketing/Mùa Đông Ấm/post_fb1.jpg',
         'image/project/Marketing/Mùa Đông Ấm/post_fb2.jpg'
       ],
-      thumbClass:'photo-bg'
+      thumbClass:'marketing-bg'
     },
     {
-      id: 3, cat: 'marketing', chip: 'MARKETING',
+      id: 3, cat: 'photography', chip: 'PHOTOGRAPHY',
       title: 'LLana Photo',
       desc: 'Bộ hình ảnh dự án photography với poster làm bìa và các ảnh nội dung đi kèm.',
       overview: 'Dự án LLana Photo dùng poster làm bìa chính và các ảnh còn lại làm thư viện ảnh cho việc trình bày hình ảnh thương hiệu.',
@@ -469,6 +531,19 @@
         'image/project/Marketing/Photograph/LLana Photo/1783959550462_2144549369653361325_2144549369653361325_d40e2bff43421b20c0cfc7f6be06f163.jpg'
       ],
       thumbClass:'photo-bg'
+      },
+    {
+      id: 4, cat: 'design', chip: 'DESIGN',
+      title: 'Thiết kế nhận diện thương hiệu',
+      desc: 'Bộ nhận diện thương hiệu bao gồm logo, màu sắc, font chữ và các ấn phẩm truyền thông.',
+      overview: 'Dự án thiết kế nhận diện thương hiệu cho một thương hiệu mới, bao gồm việc tạo logo, chọn bảng màu, font chữ và thiết kế các ấn phẩm truyền thông như danh thiếp, brochure và poster.',
+      role: 'Thiết kế logo, chọn bảng màu và font chữ, đồng thời thiết kế các ấn phẩm truyền thông để đảm bảo sự nhất quán trong nhận diện thương hiệu.',
+      cover: 'image/project/Design/Brand Identity/logo.jpg',
+      gallery: [
+        'image/project/Design/Brand Identity/business_card.jpg',
+        'image/project/Design/Brand Identity/brochure.jpg'
+      ],
+      thumbClass:'design-bg'
     }
   ];
 
