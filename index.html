@@ -518,7 +518,13 @@
           <span class="label">Vai trò</span>
           <p>${p.role}</p>
         </div>
-        <!-- gallery removed per user request -->
+        ${p.gallery ? `
+        <div class="modal-section">
+          <span class="label">Thư viện ảnh</span>
+          <div class="gallery-grid">
+            ${p.gallery.map(src => `<div><img src="${src}" alt="${p.title}"></div>`).join('')}
+          </div>
+        </div>` : ''}
       </div>
     `;
     overlay.classList.add('open');
