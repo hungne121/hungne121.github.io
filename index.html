@@ -223,8 +223,8 @@
   }
   .modal-overlay.open{display:flex;}
   .modal{
-    background:#fff; max-width:720px; width:100%; max-height:86vh; overflow-y:auto;
-    border-radius:26px; position:relative; padding:40px;
+    background:#fff; max-width:720px; width:100%; max-height:86vh; 
+    border-radius:26px; position:relative; padding:0; display:flex; flex-direction:column; overflow:hidden;
   }
   .modal-close{
     position:absolute; top:20px; right:20px; width:36px; height:36px; border-radius:50%;
@@ -238,6 +238,10 @@
   .modal-section p{font-size:14.5px; color:var(--muted); line-height:1.75;}
   .gallery-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:8px;}
   .gallery-grid div{aspect-ratio:1; border-radius:10px; background:linear-gradient(155deg,#dce8fb,#7fa8e8);}
+
+  .modal-body{
+    padding:40px; overflow-y:auto; max-height:86vh;
+  }
 
   /* ---------- CONTACT / FOOTER ---------- */
   footer{
@@ -501,25 +505,27 @@
     modalContent.innerHTML = `
       <button class="modal-close" onclick="closeModal()">✕</button>
       <span class="cat-chip">${p.chip}</span>
-      <div class="modal-thumb ${p.thumbClass}">
-        ${p.cover ? `<img src="${p.cover}" alt="${p.title}">` : ''}
-      </div>
-      <h2>${p.title}</h2>
-      <div class="modal-section">
-        <span class="label">Tổng quan</span>
-        <p>${p.overview}</p>
-      </div>
-      <div class="modal-section">
-        <span class="label">Vai trò</span>
-        <p>${p.role}</p>
-      </div>
-      ${p.gallery ? `
-      <div class="modal-section">
-        <span class="label">Thư viện ảnh</span>
-        <div class="gallery-grid">
-          ${p.gallery.map(src => `<div><img src="${src}" alt="${p.title}"></div>`).join('')}
+      <div class="modal-body">
+        <div class="modal-thumb ${p.thumbClass}">
+          ${p.cover ? `<img src="${p.cover}" alt="${p.title}">` : ''}
         </div>
-      </div>` : ''}
+        <h2>${p.title}</h2>
+        <div class="modal-section">
+          <span class="label">Tổng quan</span>
+          <p>${p.overview}</p>
+        </div>
+        <div class="modal-section">
+          <span class="label">Vai trò</span>
+          <p>${p.role}</p>
+        </div>
+        ${p.gallery ? `
+        <div class="modal-section">
+          <span class="label">Thư viện ảnh</span>
+          <div class="gallery-grid">
+            ${p.gallery.map(src => `<div><img src="${src}" alt="${p.title}"></div>`).join('')}
+          </div>
+        </div>` : ''}
+      </div>
     `;
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
